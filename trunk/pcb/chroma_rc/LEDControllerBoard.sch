@@ -12027,6 +12027,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="P+3" library="supply1" deviceset="VCC" device=""/>
 <part name="P+4" library="supply1" deviceset="VCC" device=""/>
 <part name="C1" library="rcl" deviceset="CPOL-US" device="D" value="150uF"/>
+<part name="+1" library="wirepad" deviceset="WIREPAD" device="SMD5-2,5"/>
+<part name="GND1" library="wirepad" deviceset="WIREPAD" device="SMD5-2,5"/>
 </parts>
 <sheets>
 <sheet>
@@ -12097,6 +12099,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <instance part="P+3" gate="VCC" x="30.48" y="53.34"/>
 <instance part="P+4" gate="VCC" x="5.08" y="127"/>
 <instance part="C1" gate="G$1" x="38.1" y="7.62"/>
+<instance part="+1" gate="G$1" x="30.48" y="12.7"/>
+<instance part="GND1" gate="G$1" x="30.48" y="0"/>
 </instances>
 <busses>
 </busses>
@@ -12169,6 +12173,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="C1" gate="G$1" pin="-"/>
 <wire x1="38.1" y1="0" x2="38.1" y2="2.54" width="0.1524" layer="91"/>
 <junction x="38.1" y="0"/>
+<pinref part="GND1" gate="G$1" pin="P"/>
+<wire x1="33.02" y1="0" x2="38.1" y2="0" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="SUPPLY16" gate="GND" pin="GND"/>
@@ -12425,6 +12431,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <pinref part="C1" gate="G$1" pin="+"/>
 <wire x1="38.1" y1="10.16" x2="38.1" y2="12.7" width="0.1524" layer="91"/>
 <junction x="38.1" y="12.7"/>
+<pinref part="+1" gate="G$1" pin="P"/>
+<wire x1="33.02" y1="12.7" x2="38.1" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="P+1" gate="1" pin="+12V"/>
