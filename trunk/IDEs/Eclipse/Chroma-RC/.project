@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>MultiWii</name>
+	<name>Chroma-RC</name>
 	<comment></comment>
 	<projects>
 		<project>Arduino</project>
