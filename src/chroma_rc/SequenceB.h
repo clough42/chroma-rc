@@ -8,7 +8,7 @@
 #ifndef SEQUENCEB_H_
 #define SEQUENCEB_H_
 
-#include "../LightSequence.h"
+#include "LightSequence.h"
 
 class SequenceB: public LightSequence {
 public:

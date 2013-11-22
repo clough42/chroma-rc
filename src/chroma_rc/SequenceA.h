@@ -9,7 +9,7 @@
 #define SEQUENCEA_H_
 
 #include <Arduino.h>
-#include "../LightSequence.h"
+#include "LightSequence.h"
 
 class SequenceA: public LightSequence {
 public:
