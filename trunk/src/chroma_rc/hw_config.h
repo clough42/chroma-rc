@@ -24,8 +24,8 @@
 #define PIN_RGB4_B 10
 
 /* Mono Channels */
-#define PIN_MONO_X A0
-#define PIN_MONO_Y 7
+#define PIN_ORIENTATION A0
+#define PIN_LANDING 7
 
 /* Servos */
 #define PIN_SERVO_1 2
