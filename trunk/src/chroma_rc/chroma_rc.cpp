@@ -3,15 +3,19 @@
 #include "hw_config.h"
 #include "servo_input.h"
 #include "LightSequence.h"
-#include "sequences/SequenceA.h"
-#include "sequences/SequenceB.h"
+#include "SequenceA.h"
+#include "SequenceB.h"
+#include "SequenceFixedA.h"
+#include "SequenceFixedB.h"
 
 //SequenceA sequenceA;
 //SequenceB sequenceB;
 
 LightSequence *sequences[] = {
 		new SequenceA(),
-		new SequenceB()
+		new SequenceB(),
+		new SequenceFixedA(),
+		new SequenceFixedB()
 };
 
 void setup()

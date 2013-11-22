@@ -6,7 +6,7 @@
  */
 
 #include "SequenceA.h"
-#include "../hardware.h"
+#include "hardware.h"
 
 static const byte data[][12] = {
 		{ 1,0,0, 1,0,0, 1,1,1, 1,1,1 },
