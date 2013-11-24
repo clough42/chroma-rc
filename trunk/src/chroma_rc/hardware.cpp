@@ -11,12 +11,43 @@ const byte rgb_pins[] = {
 
 const int rgb_pins_size = sizeof(rgb_pins)/sizeof(rgb_pins[0]);
 
+void blackout(void) {
+	SoftPWMSetFadeTime(ALL, 1000, 1000);
+	for(int i=0; i < rgb_pins_size; i++) {
+		SoftPWMSet(rgb_pins[i],0);
+	}
+	delay(1100);
+}
+
+void selftest(void) {
+	SoftPWMSetFadeTime(ALL, 0, 0);
+	for(int i=0; i < rgb_pins_size; i++ ) {
+		SoftPWMSet(rgb_pins[i],0);
+	}
+	delay(200);
+	for(int i=0; i < rgb_pins_size; i++ ) {
+		SoftPWMSet(rgb_pins[i],255);
+		delay(100);
+		SoftPWMSet(rgb_pins[i],0);
+	}
+	SoftPWMSetFadeTime(ALL, 200, 200);
+	for(int i=0; i < rgb_pins_size; i++ ) {
+		SoftPWMSet(rgb_pins[i],255);
+	}
+	delay(250);
+}
+
 void initialize_hardware()
 {
 	SoftPWMBegin();
-	for( int i=0; i < rgb_pins_size; i++ ) {
-		SoftPWMSet(rgb_pins[i],0);
+	for(int i=0; i < rgb_pins_size; i++ ) {
+		SoftPWMSet(rgb_pins[i], 0);
 	}
+
+	selftest();
+
+	blackout();
+
 	pinMode(PIN_ORIENTATION, OUTPUT);
 	pinMode(PIN_LANDING, OUTPUT);
 	pinMode(PIN_SERVO_1, INPUT);
@@ -25,11 +56,4 @@ void initialize_hardware()
 	pinMode(PIN_JP2, INPUT);
 	pinMode(PIN_BATT_V, INPUT);
 }
-
-void blackout(void) {
-	for(int i=0; i < rgb_pins_size; i++) {
-		SoftPWMSet(rgb_pins[i],0);
-	}
-}
-
 
