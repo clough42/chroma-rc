@@ -7,7 +7,8 @@
 extern const byte rgb_pins[];
 extern const int rgb_pins_size;
 
-void initialize_hardware();
-void blackout();
+void initialize_hardware(void);
+void self_test(void);
+void blackout(void);
 
 #endif // _HARDWARE_H_

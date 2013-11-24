@@ -19,7 +19,7 @@ void blackout(void) {
 	delay(1100);
 }
 
-void selftest(void) {
+void self_test(void) {
 	SoftPWMSetFadeTime(ALL, 0, 0);
 	for(int i=0; i < rgb_pins_size; i++ ) {
 		SoftPWMSet(rgb_pins[i],0);
@@ -41,13 +41,9 @@ void initialize_hardware()
 {
 	SoftPWMBegin();
 	for(int i=0; i < rgb_pins_size; i++ ) {
+		pinMode(rgb_pins[i], OUTPUT);
 		SoftPWMSet(rgb_pins[i], 0);
 	}
-
-	selftest();
-
-	blackout();
-
 	pinMode(PIN_ORIENTATION, OUTPUT);
 	pinMode(PIN_LANDING, OUTPUT);
 	pinMode(PIN_SERVO_1, INPUT);

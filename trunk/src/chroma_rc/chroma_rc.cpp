@@ -19,8 +19,10 @@ LightSequence *sequences[] = {
 
 void setup()
 {
-	initialize_hardware();
 	initialize_servo_input();
+	initialize_hardware();
+	self_test();
+	blackout();
 }
 
 int getPrimaryMode() {
