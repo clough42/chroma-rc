@@ -3,18 +3,18 @@
 #include "hw_config.h"
 #include "servo_input.h"
 #include "LightSequence.h"
-#include "SequenceA.h"
-#include "SequenceB.h"
-#include "SequenceFixedA.h"
-#include "SequenceFixedB.h"
+#include "SequencePulse.h"
+#include "SequencePulseThruWhite.h"
+#include "SequenceFixedRedGreenWhite.h"
+#include "SequenceFixedRedGreenYellow.h"
 #include "SequenceRedGreenFade.h"
 
 LightSequence *sequences[] = {
 		new SequenceRedGreenFade(),
-		new SequenceA(),
-		new SequenceB(),
-		new SequenceFixedA(),
-		new SequenceFixedB()
+		new SequencePulse(),
+		new SequencePulseThruWhite(),
+		new SequenceFixedRedGreenWhite(),
+		new SequenceFixedRedGreenYellow(),
 };
 
 void setup()

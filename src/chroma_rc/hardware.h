@@ -2,6 +2,7 @@
 #define _HARDWARE_H_
 
 #include <Arduino.h>
+#include "SoftPWM.h"
 
 extern const byte rgb_pins[];
 extern const int rgb_pins_size;
