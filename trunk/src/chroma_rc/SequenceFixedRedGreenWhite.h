@@ -6,11 +6,11 @@
  */
 
 #ifndef SEQUENCEFIXEDB_H_
-#define SEQUENCEFIXEDB_H_
+#define SEQUENCEFIXEDREDGREENWHITE_H_
 
 #include "LightSequence.h"
 
-class SequenceFixedB: public LightSequence {
+class SequenceFixedRedGreenWhite: public LightSequence {
 public:
 	virtual int advance(void);
 };

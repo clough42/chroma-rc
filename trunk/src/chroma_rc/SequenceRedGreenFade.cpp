@@ -10,9 +10,12 @@
 #include "progmem.h"
 
 static const byte PROGMEM data[][12] = {
-		{ 1,0,0, 0,1,0, 0,1,1, 0,1,1 },
-		{ 1,0,0, 0,1,0, 1,0,1, 1,0,1 },
-		{ 1,0,0, 0,1,0, 1,1,0, 1,1,0 },
+		{ 255,0,0, 0,255,0, 0,255,255, 0,255,255 },
+		{ 255,0,0, 0,255,0, 0,0,255, 0,0,255 },
+		{ 255,0,0, 0,255,0, 255,0,255, 255,0,255 },
+		{ 255,0,0, 0,255,0, 255,0,0, 255,0,0 },
+		{ 255,0,0, 0,255,0, 255,255,0, 255,255,0 },
+		{ 255,0,0, 0,255,0, 0,255,0, 0,255,0 },
 };
 
 int SequenceRedGreenFade::advance(void) {
@@ -21,10 +24,11 @@ int SequenceRedGreenFade::advance(void) {
 	}
 
 	for( byte i=0; i < rgb_pins_size; i++ ) {
-		digitalWrite(rgb_pins[i], readProgmemByte(data[pos],i));
+		SoftPWMSetFadeTime(rgb_pins[i], 4000, 4000);
+		SoftPWMSet(rgb_pins[i], readProgmemByte(data[pos],i));
 	}
 
 	pos++;
 
-	return 10000;
+	return 4000;
 }

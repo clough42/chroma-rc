@@ -5,14 +5,14 @@
  *      Author: clough
  */
 
-#ifndef SEQUENCEB_H_
-#define SEQUENCEB_H_
+#ifndef SEQUENCEPULSE_H_
+#define SEQUENCEPULSE_H_
 
 #include "LightSequence.h"
 
-class SequenceB: public LightSequence {
+class SequencePulse: public LightSequence {
 public:
 	virtual int advance(void);
 };
 
-#endif /* SEQUENCEB_H_ */
+#endif /* SEQUENCEPULSE_H_ */

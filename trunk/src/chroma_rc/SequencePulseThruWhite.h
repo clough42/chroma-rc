@@ -5,16 +5,16 @@
  *      Author: clough
  */
 
-#ifndef SEQUENCEA_H_
-#define SEQUENCEA_H_
+#ifndef SEQUENCEPULSETHRUWHITE_H_
+#define SEQUENCEPULSETHRUWHITE_H_
 
 #include <Arduino.h>
 #include "LightSequence.h"
 
-class SequenceA: public LightSequence {
+class SequencePulseThruWhite: public LightSequence {
 public:
 	virtual int advance(void);
 
 };
 
-#endif /* SEQUENCEA_H_ */
+#endif /* SEQUENCEPULSETHRUWHITE_H_ */
