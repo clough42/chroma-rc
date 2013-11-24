@@ -39,5 +39,8 @@ int mapToRange(int value, int numRanges) {
 	// note numRanges - 1
 	// this is because we're centering the ranges, making this a fencepost problem
 	int rangeSize = (SERVO_MAX-SERVO_MIN) / (numRanges-1);
-	return ((value-SERVO_MIN) + (rangeSize/2)) / rangeSize;
+	int retVal = ((value-SERVO_MIN) + (rangeSize/2)) / rangeSize;
+	if( retVal < 0 ) retVal = 0;
+	if( retVal >= numRanges ) retVal = numRanges - 1;
+	return retVal;
 }
