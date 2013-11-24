@@ -7,11 +7,10 @@
 #include "SequenceB.h"
 #include "SequenceFixedA.h"
 #include "SequenceFixedB.h"
-
-//SequenceA sequenceA;
-//SequenceB sequenceB;
+#include "SequenceRedGreenFade.h"
 
 LightSequence *sequences[] = {
+		new SequenceRedGreenFade(),
 		new SequenceA(),
 		new SequenceB(),
 		new SequenceFixedA(),
@@ -24,22 +23,37 @@ void setup()
 	initialize_servo_input();
 }
 
+int getPrimaryMode() {
+	return mapToRange(servo_input_1_value, 3);
+}
+
+int getSecondaryMode() {
+	return mapToRange(servo_input_2_value, sizeof(sequences) / sizeof(sequences[0]));
+}
+
+void delayUnlessModeChanges(int primaryMode, int secondaryMode, int delayms) {
+	unsigned long targetTime = millis() + delayms;
+
+	while( millis() < targetTime && getPrimaryMode() == primaryMode && getSecondaryMode() == secondaryMode ) {
+		delay(min(250, targetTime - millis()));
+	}
+}
 
 void loop()
 {
-	int primaryMode = mapToRange(servo_input_1_value, 3);
+	int primaryMode = getPrimaryMode();
+	int secondaryMode = getSecondaryMode();
 
 	digitalWrite(PIN_ORIENTATION, primaryMode > 0 ? HIGH : LOW);
 	digitalWrite(PIN_LANDING, primaryMode > 1 ? HIGH : LOW);
 
-	int delayms = 100;
+	int delayms = 1000;
 
 	if( primaryMode > 0 ) {
-		int secondaryMode = mapToRange(servo_input_2_value, sizeof(sequences)/sizeof(sequences[0]));
 		delayms = sequences[secondaryMode]->advance();
 	} else {
 		blackout();
 	}
 
-	delay(delayms);
+	delayUnlessModeChanges(primaryMode, secondaryMode, delayms);
 }
